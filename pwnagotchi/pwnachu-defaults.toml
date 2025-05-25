@@ -1,0 +1,34 @@
+main.plugins.pwnachu-exp.enabled = true
+main.plugins.pwnachu-exp.lvl_x_coord = 0
+main.plugins.pwnachu-exp.lvl_y_coord = 109
+main.plugins.pwnachu-exp.exp_x_coord = 32
+main.plugins.pwnachu-exp.exp_y_coord = 109
+main.plugins.pwnachu-exp.bar_symbols_count = 28
+
+main.plugins.pwnachu-exp.faces.lvlup = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/EXCITED.png"
+
+ui.faces.look_r = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/LOOK_R.png"
+ui.faces.look_l = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/LOOK_L.png"
+ui.faces.look_r_happy = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/LOOK_R_HAPPY.png"
+ui.faces.look_l_happy = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/LOOK_L_HAPPY.png"
+ui.faces.sleep = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/SLEEP.png"
+ui.faces.sleep2 = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/SLEEP2.png"
+ui.faces.awake = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/AWAKE.png"
+ui.faces.bored = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/BORED.png"
+ui.faces.intense = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/INTENSE.png"
+ui.faces.cool = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/COOL.png"
+ui.faces.happy = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/HAPPY.png"
+ui.faces.excited = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/EXCITED.png"
+ui.faces.grateful = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/GRATEFUL.png"
+ui.faces.motivated = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/MOTIVATED.png"
+ui.faces.demotivated = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/DEMOTIVATED.png"
+ui.faces.smart = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/SMART.png"
+ui.faces.lonely = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/LONELY.png"
+ui.faces.sad = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/SAD.png"
+ui.faces.angry = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/ANGRY.png"
+ui.faces.friend = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/FRIEND.png"
+ui.faces.broken = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/BROKEN.png"
+ui.faces.debug = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/DEBUG.png"
+ui.faces.upload = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/UPLOAD.png"
+ui.faces.upload1 = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/UPLOAD1.png"
+ui.faces.upload2 = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/UPLOAD2.png"

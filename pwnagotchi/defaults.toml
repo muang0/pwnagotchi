@@ -6,22 +6,13 @@ mon_start_cmd = "/usr/bin/monstart"
 mon_stop_cmd = "/usr/bin/monstop"
 mon_max_blind_epochs = 5
 no_restart = false
-whitelist = [
-    "EXAMPLE_NETWORK",
-    "ANOTHER_EXAMPLE_NETWORK",
-    "fo:od:ba:be:fo:od",
-    "fo:od:ba"
-]
+whitelist = []
 confd = "/etc/pwnagotchi/conf.d/"
-custom_plugin_repos = [
-    "https://github.com/jayofelony/pwnagotchi-torch-plugins/archive/master.zip",
-    "https://github.com/Sniffleupagus/pwnagotchi_plugins/archive/master.zip",
-    "https://github.com/NeonLightning/pwny/archive/master.zip",
-    "https://github.com/marbasec/UPSLite_Plugin_1_3/archive/master.zip",
-    "https://github.com/wpa-2/Pwnagotchi-Plugins/archive/master.zip",
-    "https://github.com/cyberartemio/wardriver-pwnagotchi-plugin/archive/main.zip"
-]
+custom_plugin_repos = []
 custom_plugins = "/usr/local/share/pwnagotchi/custom-plugins/"
+
+main.plugins.customizedui.enabled = true
+main.plugins.customizedui.ui.display.type = "waveshare_4"
 
 [main.plugins.auto-tune]
 enabled = true
@@ -51,7 +42,7 @@ exclude = [ "/etc/pwnagotchi/logs/*"]
 commands = [ "tar cf {backup_file} {files}"]
 
 [main.plugins.auto-update]
-enabled = true
+enabled = false
 install = true
 interval = 1
 token = "" # Create a personal access token (classic) with scope set to public_repo to use the GitHub API
@@ -88,7 +79,7 @@ device = "/dev/ttyUSB0" # for GPSD: "localhost:2947"
 enabled = false
 
 [main.plugins.grid]
-enabled = true
+enabled = false
 report = true
 
 [main.plugins.logtail]
@@ -198,34 +189,34 @@ name = "DejaVuSansMono" # for japanese: fonts-japanese-gothic
 size_offset = 0 # will be added to the font size
 
 [ui.faces]
-look_r = "( ⚆_⚆)"
-look_l = "(☉_☉ )"
-look_r_happy = "( ◕‿◕)"
-look_l_happy = "(◕‿◕ )"
-sleep = "(⇀‿‿↼)"
-sleep2 = "(≖‿‿≖)"
-awake = "(◕‿‿◕)"
-bored = "(-__-)"
-intense = "(°▃▃°)"
-cool = "(⌐■_■)"
-happy = "(•‿‿•)"
-excited = "(ᵔ◡◡ᵔ)"
-grateful = "(^‿‿^)"
-motivated = "(☼‿‿☼)"
-demotivated = "(≖__≖)"
-smart = "(✜‿‿✜)"
-lonely = "(ب__ب)"
-sad = "(╥☁╥ )"
-angry = "(-_-')"
-friend = "(♥‿‿♥)"
-broken = "(☓‿‿☓)"
-debug = "(#__#)"
-upload = "(1__0)"
-upload1 = "(1__1)"
-upload2 = "(0__1)"
-png = false
+look_r = "/custom-faces/LOOK_R.png"
+look_l = "/custom-faces/LOOK_L.png"
+look_r_happy = "/custom-faces/LOOK_R_HAPPY.png"
+look_l_happy = "/custom-faces/LOOK_L_HAPPY.png"
+sleep = "/custom-faces/SLEEP.png"
+sleep2 = "/custom-faces/SLEEP2.png"
+awake = "/custom-faces/AWAKE.png"
+bored = "/custom-faces/BORED.png"
+intense = "/custom-faces/INTENSE.png"
+cool = "/custom-faces/COOL.png"
+happy = "/custom-faces/HAPPY.png"
+excited = "/custom-faces/EXCITED.png"
+grateful = "/custom-faces/GRATEFUL.png"
+motivated = "/custom-faces/MOTIVATED.png"
+demotivated = "/custom-faces/DEMOTIVATED.png"
+smart = "/custom-faces/SMART.png"
+lonely = "/custom-faces/LONELY.png"
+sad = "/custom-faces/SAD.png"
+angry = "/custom-faces/ANGRY.png"
+friend = "/custom-faces/FRIEND.png"
+broken = "/custom-faces/BROKEN.png"
+debug = "/custom-faces/DEBUG.png"
+upload = "/custom-faces/UPLOAD.png"
+upload1 = "/custom-faces/UPLOAD1.png"
+upload2 = "/custom-faces/UPLOAD2.png"
+png = true
 position_x = 0
-position_y = 34
+position_y = 14
 
 [ui.web]
 enabled = true
