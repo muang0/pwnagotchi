@@ -28,7 +28,7 @@ source "arm-image" "rpi32-pwnagotchi" {
   qemu_args       = ["-cpu", "arm1176"]
   image_arch      = "arm"
   image_mounts    = ["/boot/firmware","/"]
-  target_image_size = 25769803776
+  target_image_size = 19969908736
 }
 
 build {
@@ -98,7 +98,7 @@ build {
     inline = ["chmod +x /etc/update-motd.d/*"]
   }
   provisioner "shell" {
-    inline = ["apt-get -y --allow-releaseinfo-change update", "apt-get -y dist-upgrade", "apt-get install -y --no-install-recommends ansible"]
+    inline = ["apt-get clean", "apt-get -y --allow-releaseinfo-change update", "apt-get -y dist-upgrade", "apt-get install -y --no-install-recommends ansible"]
   }
   provisioner "ansible-local" {
     command         = "ANSIBLE_FORCE_COLOR=1 PYTHONUNBUFFERED=1 PWN_VERSION=${var.pwn_version} PWN_HOSTNAME=${var.pwn_hostname} ansible-playbook"
