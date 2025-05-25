@@ -28,7 +28,7 @@ source "arm-image" "rpi32-pwnagotchi" {
   qemu_args       = ["-cpu", "arm1176"]
   image_arch      = "arm"
   image_mounts    = ["/boot/firmware","/"]
-  target_image_size = 19969908736
+  target_image_size = 25769803776
 }
 
 build {
@@ -46,6 +46,17 @@ build {
       "data/32bit/usr/bin/pwnlib",
     ]
   }
+
+  provisioner "shell" {
+    inline = [
+      "echo 'Setting up custom DNS...'",
+      "chattr -i /etc/resolv.conf 2>/dev/null || true",
+      "echo 'nameserver 192.168.1.212' > /etc/resolv.conf",
+      "chattr +i /etc/resolv.conf",
+      "cat /etc/resolv.conf"
+    ]
+  }
+
   provisioner "shell" {
     inline = ["chmod +x /usr/bin/*"]
   }

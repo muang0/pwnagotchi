@@ -30,12 +30,6 @@
       bettercap:
         source: "https://github.com/bettercap/bettercap.git"
         branch: "lite" # or master
-      torch:
-        wheel: "torch-2.1.0a0+gita8e7c98-cp311-cp311-linux_armv6l.whl"
-        url: "https://github.com/Sniffleupagus/Torch4Pizero/releases/download/py0torch-bookworm-2024-05/torch-2.1.0a0+gita8e7c98-cp311-cp311-linux_armv6l.whl"
-      torchvision:
-        wheel: "torchvision-0.16.0+fbb4cc5-cp311-cp311-linux_armv6l.whl"
-        url: "https://github.com/Sniffleupagus/Torch4Pizero/releases/download/py0torch-bookworm-2024-05/torchvision-0.16.0+fbb4cc5-cp311-cp311-linux_armv6l.whl"
       apt:
         downgrade:
           - libpcap-dev_1.9.1-4_armhf.deb
@@ -131,14 +125,6 @@
       args:
         executable: /bin/bash
         chdir: /usr/local/src
-
-    - name: install 32bit torch
-      shell: "python3 -m pip install {{ packages.torch.url }} {{ packages.torchvision.url }} --break-system-packages"
-      args:
-        executable: /bin/bash
-      environment:
-        QEMU_UNAME: "{{ kernel.full }}"
-        ARCHFLAGS: "-arch armv6l"
 
     # Now we set up /boot/firmware
     - name: Create pi user
