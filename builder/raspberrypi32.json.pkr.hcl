@@ -61,7 +61,6 @@ build {
     sources     = [
       "data/32bit/etc/systemd/system/bettercap.service",
       "data/32bit/etc/systemd/system/pwnagotchi.service",
-      "data/32bit/etc/systemd/system/pwngrid-peer.service",
     ]
   }
   provisioner "file" {

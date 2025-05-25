@@ -136,13 +136,11 @@ class Switcher(plugins.Plugin):
         # create hooks
         logging.debug("[switcher] creating hooks...")
         methods = ['webhook', 'internet_available', 'ui_setup', 'ui_update',
-                   'unload', 'display_setup', 'ready', 'ai_ready', 'ai_policy',
-                   'ai_training_start', 'ai_training_step', 'ai_training_end',
-                   'ai_best_reward', 'ai_worst_reward', 'free_channel',
+                   'unload', 'display_setup', 'ready', 'free_channel',
                    'bored', 'sad', 'excited', 'lonely', 'rebooting', 'wait',
                    'sleep', 'wifi_update', 'unfiltered_ap_list', 'association',
                    'deauthentication', 'channel_hop', 'handshake', 'epoch',
-                   'peer_detected', 'peer_lost', 'config_changed']
+                   'config_changed']
 
         for m in methods:
             setattr(Switcher, 'on_%s' % m, partial(self.trigger, m))

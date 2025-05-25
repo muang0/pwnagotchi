@@ -1,57 +1,24 @@
 main.name = "pwnagotchi"
 main.lang = "en"
-main.whitelist = [
-    "EXAMPLE_NETWORK",
-    "ANOTHER_EXAMPLE_NETWORK",
-    "fo:od:ba:be:fo:od",
-    "fo:od:ba"
-]
+main.whitelist = []
 main.confd = "/etc/pwnagotchi/conf.d/"
-main.custom_plugin_repos = [
-    "https://github.com/jayofelony/pwnagotchi-torch-plugins/archive/master.zip",
-    "https://github.com/tisboyo/pwnagotchi-pisugar2-plugin/archive/master.zip",
-    "https://github.com/nullm0ose/pwnagotchi-plugin-pisugar3/archive/master.zip",
-    "https://github.com/Sniffleupagus/pwnagotchi_plugins/archive/master.zip",
-    "https://github.com/NeonLightning/pwny/archive/master.zip",
-    "https://github.com/marbasec/UPSLite_Plugin_1_3/archive/master.zip"
-]
+main.custom_plugin_repos = []
 
 main.custom_plugins = "/usr/local/share/pwnagotchi/custom-plugins/"
 
-main.plugins.auto-update.enabled = true
-main.plugins.auto-update.install = true
-main.plugins.auto-update.interval = 1
+main.plugins.customizedui.enabled = true
+main.plugins.customizedui.ui.display.type = "waveshare_4"
 
-main.plugins.bt-tether.enabled = false
-
-main.plugins.bt-tether.devices.android-phone.enabled = false
-main.plugins.bt-tether.devices.android-phone.search_order = 1
-main.plugins.bt-tether.devices.android-phone.mac = ""
-main.plugins.bt-tether.devices.android-phone.ip = "192.168.44.44"
-main.plugins.bt-tether.devices.android-phone.netmask = 24
-main.plugins.bt-tether.devices.android-phone.interval = 1
-main.plugins.bt-tether.devices.android-phone.scantime = 10
-main.plugins.bt-tether.devices.android-phone.max_tries = 10
-main.plugins.bt-tether.devices.android-phone.share_internet = true
-main.plugins.bt-tether.devices.android-phone.priority = 1
-
-main.plugins.bt-tether.devices.ios-phone.enabled = false
-main.plugins.bt-tether.devices.ios-phone.search_order = 2
-main.plugins.bt-tether.devices.ios-phone.mac = ""
-main.plugins.bt-tether.devices.ios-phone.ip = "172.20.10.6"
-main.plugins.bt-tether.devices.ios-phone.netmask = 24
-main.plugins.bt-tether.devices.ios-phone.interval = 5
-main.plugins.bt-tether.devices.ios-phone.scantime = 20
-main.plugins.bt-tether.devices.ios-phone.max_tries = 0
-main.plugins.bt-tether.devices.ios-phone.share_internet = true
-main.plugins.bt-tether.devices.ios-phone.priority = 999
+main.plugins.pwnachu-exp.enabled = true
+main.plugins.pwnachu-exp.lvl_x_coord = 0
+main.plugins.pwnachu-exp.lvl_y_coord = 109
+main.plugins.pwnachu-exp.exp_x_coord = 32
+main.plugins.pwnachu-exp.exp_y_coord = 109
+main.plugins.pwnachu-exp.bar_symbols_count = 28
+main.plugins.pwnachu-exp.faces.lvlup = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/EXCITED.png"
 
 main.plugins.fix_services.enabled = true
 
-main.plugins.gdrivesync.enabled = false
-main.plugins.gdrivesync.backupfiles = ['']
-main.plugins.gdrivesync.backup_folder = "PwnagotchiBackups"
-main.plugins.gdrivesync.interval = 1
 
 main.plugins.gpio_buttons.enabled = false
 
@@ -60,7 +27,7 @@ main.plugins.gps.speed = 19200
 main.plugins.gps.device = "/dev/ttyUSB0" # for GPSD: "localhost:2947"
 
 main.plugins.grid.enabled = true
-main.plugins.grid.report = true
+main.plugins.grid.report = false
 
 main.plugins.logtail.enabled = false
 main.plugins.logtail.max-lines = 10000
@@ -156,34 +123,33 @@ ui.fps = 0.0
 ui.font.name = "DejaVuSansMono" # for japanese: fonts-japanese-gothic
 ui.font.size_offset = 0 # will be added to the font size
 
-ui.faces.look_r = "( ⚆_⚆)"
-ui.faces.look_l = "(☉_☉ )"
-ui.faces.look_r_happy = "( ◕‿◕)"
-ui.faces.look_l_happy = "(◕‿◕ )"
-ui.faces.sleep = "(⇀‿‿↼)"
-ui.faces.sleep2 = "(≖‿‿≖)"
-ui.faces.awake = "(◕‿‿◕)"
-ui.faces.bored = "(-__-)"
-ui.faces.intense = "(°▃▃°)"
-ui.faces.cool = "(⌐■_■)"
-ui.faces.happy = "(•‿‿•)"
-ui.faces.excited = "(ᵔ◡◡ᵔ)"
-ui.faces.grateful = "(^‿‿^)"
-ui.faces.motivated = "(☼‿‿☼)"
-ui.faces.demotivated = "(≖__≖)"
-ui.faces.smart = "(✜‿‿✜)"
-ui.faces.lonely = "(ب__ب)"
-ui.faces.sad = "(╥☁╥ )"
-ui.faces.angry = "(-_-')"
-ui.faces.friend = "(♥‿‿♥)"
-ui.faces.broken = "(☓‿‿☓)"
-ui.faces.debug = "(#__#)"
-ui.faces.upload = "(1__0)"
-ui.faces.upload1 = "(1__1)"
-ui.faces.upload2 = "(0__1)"
-ui.faces.png = false
+ui.faces.look_r = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/LOOK_R.png"
+ui.faces.look_l = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/LOOK_L.png"
+ui.faces.look_r_happy = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/LOOK_R_HAPPY.png"
+ui.faces.look_l_happy = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/LOOK_L_HAPPY.png"
+ui.faces.sleep = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/SLEEP.png"
+ui.faces.sleep2 = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/SLEEP2.png"
+ui.faces.awake = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/AWAKE.png"
+ui.faces.bored = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/BORED.png"
+ui.faces.intense = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/INTENSE.png"
+ui.faces.cool = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/COOL.png"
+ui.faces.happy = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/HAPPY.png"
+ui.faces.excited = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/EXCITED.png"
+ui.faces.grateful = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/GRATEFUL.png"
+ui.faces.motivated = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/MOTIVATED.png"
+ui.faces.demotivated = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/DEMOTIVATED.png"
+ui.faces.smart = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/SMART.png"
+ui.faces.lonely = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/LONELY.png"
+ui.faces.sad = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/SAD.png"
+ui.faces.angry = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/ANGRY.png"
+ui.faces.broken = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/BROKEN.png"
+ui.faces.debug = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/DEBUG.png"
+ui.faces.upload = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/UPLOAD.png"
+ui.faces.upload1 = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/UPLOAD1.png"
+ui.faces.upload2 = "/usr/local/src/pwnagotchi/pwnagotchi/ui/custom-faces/pwnachu/UPLOAD2.png"
+ui.faces.png = true
 ui.faces.position_x = 0
-ui.faces.position_y = 34
+ui.faces.position_y = 14
 
 ui.web.enabled = true
 ui.web.address = "::" # listening on both ipv4 and ipv6 - switch to 0.0.0.0 to listen on just ipv4

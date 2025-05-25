@@ -28,8 +28,6 @@ dependencies = [
     "spidev",
     "stable_baselines3",
     "toml",
-    "torch; platform_machine=='aarch64'",
-    "torchvision; platform_machine=='aarch64'",
     "tweepy",
     "websockets",
 ]
@@ -37,9 +35,10 @@ requires-python = ">=3.10"
 authors = [
   {name = "Evilsocket", email = "evilsocket@gmail.com"},
   {name = "Jayofelony", email = "oudshoorn.jeroen@gmail.com"}
+  {name = "muang0", email = "muang0@robotbash.com"}
 ]
 maintainers = [
-  {name = "Jayofelony", email = "oudshoorn.jeroen@gmail.com"}
+  {name = "muang0", email = "muang0@robotbash.com"}
 ]
 description = "(⌐■_■) - Deep Reinforcement Learning instrumenting bettercap for WiFI pwning."
 readme = "README.md"
@@ -50,12 +49,6 @@ classifiers = [
     'License :: OSI Approved :: GNU General Public License (GPL)',
     'Environment :: Console',
 ]
-
-[project.urls]
-Homepage = "https://pwnagotchi.org/"
-Documentation = "https://pwnagotchi.org/"
-Repository = "https://github.com/jayofelony/pwnagotchi.git"
-Issues = "https://github.com/jayofelony/pwnagotchi/issues"
 
 [project.scripts]
 pwnagotchi_cli = "bin.pwnagotchi:pwnagotchi_cli"

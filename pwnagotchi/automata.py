@@ -31,15 +31,6 @@ class Automata(object):
     def set_ready(self):
         plugins.on('ready', self)
 
-    def in_good_mood(self):
-        return self._has_support_network_for(1.0)
-
-    def _has_support_network_for(self, factor):
-        bond_factor = self._config['personality']['bond_encounters_factor']
-        total_encounters = sum(peer.encounters for _, peer in self._peers.items())
-        support_factor = total_encounters / bond_factor
-        return support_factor >= factor
-
     # triggered when it's a sad/bad day, but you have good friends around ^_^
     def set_grateful(self):
         self._view.on_grateful()

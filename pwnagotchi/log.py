@@ -8,8 +8,6 @@ import gzip
 import warnings
 from datetime import datetime
 
-from pwnagotchi.voice import Voice
-from pwnagotchi.mesh.peer import Peer
 from file_read_backwards import FileReadBackwards
 
 LAST_SESSION_FILE = '/root/.pwnagotchi-last-session'
@@ -24,11 +22,9 @@ class LastSession(object):
     DEAUTH_TOKEN = 'deauthing '
     ASSOC_TOKEN = 'sending association frame to '
     HANDSHAKE_TOKEN = '!!! captured new handshake '
-    PEER_TOKEN = 'detected unit '
 
     def __init__(self, config):
         self.config = config
-        self.voice = Voice(lang=config['main']['lang'])
         self.path = config['main']['log']['path']
         self.last_session = []
         self.last_session_id = ''
@@ -38,16 +34,11 @@ class LastSession(object):
         self.deauthed = 0
         self.associated = 0
         self.handshakes = 0
-        self.peers = 0
-        self.last_peer = None
         self.epochs = 0
         self.train_epochs = 0
         self.min_reward = 1000
         self.max_reward = -1000
         self.avg_reward = 0
-        self._peer_parser = re.compile(
-            'detected unit (.+)@(.+) \(v.+\) on channel \d+ \(([\d\-]+) dBm\) \[sid:(.+) pwnd_tot:(\d+) uptime:(\d+)]')
-        self.parsed = False
 
     def _get_last_saved_session_id(self):
         saved = ''
@@ -77,8 +68,6 @@ class LastSession(object):
         self.handshakes = 0
         self.epochs = 0
         self.train_epochs = 0
-        self.peers = 0
-        self.last_peer = None
         self.min_reward = 1000
         self.max_reward = -1000
         self.avg_reward = 0
@@ -130,45 +119,10 @@ class LastSession(object):
                                 elif reward > self.max_reward:
                                     self.max_reward = reward
 
-                elif LastSession.PEER_TOKEN in line:
-                    m = self._peer_parser.findall(line)
-                    if m:
-                        name, pubkey, rssi, sid, pwnd_tot, uptime = m[0]
-                        if pubkey not in cache:
-                            self.last_peer = Peer({
-                                'session_id': sid,
-                                'channel': 1,
-                                'rssi': int(rssi),
-                                'identity': pubkey,
-                                'advertisement': {
-                                    'name': name,
-                                    'pwnd_tot': int(pwnd_tot)
-                                }})
-                            self.peers += 1
-                            cache[pubkey] = self.last_peer
                         else:
                             cache[pubkey].adv['pwnd_tot'] = pwnd_tot
             except Exception as e:
                 logging.error("error parsing line '%s': %s" % (line, e))
-
-        if started_at is not None:
-            self.duration = stopped_at - started_at
-            mins, secs = divmod(self.duration, 60)
-            hours, mins = divmod(mins, 60)
-        else:
-            hours = mins = secs = 0
-
-        self.duration = '%02d:%02d:%02d' % (hours, mins, secs)
-        self.duration_human = []
-        if hours > 0:
-            self.duration_human.append('%d %s' % (hours, self.voice.hhmmss(hours, 'h')))
-        if mins > 0:
-            self.duration_human.append('%d %s' % (mins, self.voice.hhmmss(mins, 'm')))
-        if secs > 0:
-            self.duration_human.append('%d %s' % (secs, self.voice.hhmmss(secs, 's')))
-
-        self.duration_human = ', '.join(self.duration_human)
-        self.avg_reward /= (self.epochs if self.epochs else 1)
 
     def parse(self, ui, skip=False):
         if skip:

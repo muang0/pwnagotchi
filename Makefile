@@ -53,10 +53,6 @@ image: packer
 	export LC_ALL=en_GB.UTF-8
 	cd builder && sudo /usr/bin/packer init raspberrypi32.json.pkr.hcl && sudo $(UNSHARE) /usr/bin/packer build -var "pwn_hostname=$(PWN_HOSTNAME)" -var "pwn_version=$(PWN_VERSION)" raspberrypi32.json.pkr.hcl
 
-64bit: packer
-	export LC_ALL=en_GB.UTF-8
-	cd builder && sudo /usr/bin/packer init raspberrypi64.json.pkr.hcl && sudo $(UNSHARE) /usr/bin/packer build -var "pwn_hostname=$(PWN_HOSTNAME)" -var "pwn_version=$(PWN_VERSION)" raspberrypi64.json.pkr.hcl
-
 clean:
 	- rm -rf /tmp/packer*
 	- rm -rf /tmp/LICENSE.txt

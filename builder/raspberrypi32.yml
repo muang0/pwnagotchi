@@ -15,7 +15,6 @@
         - bettercap.service
         - fstrim.timer
         - pwnagotchi.service
-        - pwngrid-peer.service
       disable:
         - apt-daily-upgrade.service
         - apt-daily-upgrade.timer
@@ -25,14 +24,11 @@
         - ifup@wlan0.service
     packages:
       caplets:
-        source: "https://github.com/jayofelony/caplets.git"
+        source: "https://github.com/bettercap/caplets.git"
         branch: "lite" # or master
       bettercap:
-        source: "https://github.com/jayofelony/bettercap.git"
+        source: "https://github.com/bettercap/bettercap.git"
         branch: "lite" # or master
-      pwngrid:
-        source: "https://github.com/jayofelony/pwngrid.git"
-        url: "https://github.com/jayofelony/pwngrid/releases/download/v1.10.7/pwngrid-1.10.7-armhf.zip"
       torch:
         wheel: "torch-2.1.0a0+gita8e7c98-cp311-cp311-linux_armv6l.whl"
         url: "https://github.com/Sniffleupagus/Torch4Pizero/releases/download/py0torch-bookworm-2024-05/torch-2.1.0a0+gita8e7c98-cp311-cp311-linux_armv6l.whl"
@@ -134,14 +130,6 @@
       args:
         executable: /bin/bash
         chdir: /usr/local/src
-
-    - name: install 32bit torch
-      shell: "python3 -m pip install {{ packages.torch.url }} {{ packages.torchvision.url }} --break-system-packages"
-      args:
-        executable: /bin/bash
-      environment:
-        QEMU_UNAME: "{{ kernel.full }}"
-        ARCHFLAGS: "-arch armv6l"
 
     # Now we set up /boot/firmware
     - name: Create pi user
